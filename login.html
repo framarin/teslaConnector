@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Genera URL di Login Tesla</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        input, select, button {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Genera URL di Login Tesla</h1>
+    <form id="loginForm">
+        <label for="clientId">Client ID:</label><br>
+        <input type="text" id="clientId" value="ownerapi" required><br>
+        
+        <label for="redirectUri">Redirect URI:</label><br>
+        <input type="text" id="redirectUri" value="https://tuo-dominio.com/callback" required><br>
+
+        <label for="scope">Scope:</label><br>
+        <input type="text" id="scope" value="openid email offline_access" required><br>
+
+        <button type="button" onclick="generateLoginUrl()">Genera URL di Login</button>
+    </form>
+
+    <div id="result">
+        <p><strong>URL di Login Generato:</strong></p>
+        <a href="#" id="loginUrl" target="_blank"></a>
+    </div>
+
+    <script>
+        function generateLoginUrl() {
+            const clientId = document.getElementById('clientId').value;
+            const redirectUri = encodeURIComponent(document.getElementById('redirectUri').value);
+            const scope = encodeURIComponent(document.getElementById('scope').value);
+            const state = '12345';  // Puoi generare un valore dinamico per il state se necessario.
+
+            const url = `https://auth.tesla.com/oauth2/v3/authorize?response_type=code&client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}&state=${state}`;
+
+            const loginUrlElement = document.getElementById('loginUrl');
+            loginUrlElement.href = url;
+            loginUrlElement.textContent = url;
+        }
+    </script>
+</body>
+</html>
