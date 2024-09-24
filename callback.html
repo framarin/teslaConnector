@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callback Tesla OAuth2</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #message {
+            margin: 20px;
+            font-size: 18px;
+        }
+        .code {
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Autenticazione completata!</h1>
+    <p id="message">Sto processando il codice di autorizzazione...</p>
+
+    <script>
+        // Funzione per ottenere il codice di autorizzazione dall'URL
+        function getAuthorizationCode() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const code = urlParams.get('code');
+            return code;
+        }
+
+        // Funzione per mostrare il codice
+        function displayAuthorizationCode() {
+            const code = getAuthorizationCode();
+            const messageElement = document.getElementById('message');
+
+            if (code) {
+                messageElement.innerHTML = `Codice di autorizzazione ricevuto: <span class="code">${code}</span>`;
+            } else {
+                messageElement.innerHTML = "Errore: Nessun codice di autorizzazione trovato nell'URL.";
+            }
+        }
+
+        // Esegui la funzione quando la pagina è caricata
+        window.onload = displayAuthorizationCode;
+    </script>
+</body>
+</html>
