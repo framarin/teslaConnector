@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "dart-code.flutter",
+    "dart-code.dart-code",
+    "alexisvt.flutter-snippets",
+    "nash.awesome-flutter-snippets",
+    "localizely.flutter-intl",
+    "jeroen-meijer.pubspec-assist",
+    "bradlc.vscode-tailwindcss"
+  ]
+}

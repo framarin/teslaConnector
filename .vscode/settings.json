@@ -1,0 +1,19 @@
+{
+  "dart.flutterSdkPath": "/tmp/flutter",
+  "dart.previewFlutterUiGuides": true,
+  "dart.previewFlutterUiGuidesCustomTracking": true,
+  "dart.closingLabels": true,
+  "dart.lineLength": 100,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll": "explicit"
+  },
+  "files.associations": {
+    "*.dart": "dart"
+  },
+  "flutter.hot-reload-on-save": "always",
+  "dart.showTodos": true,
+  "dart.analysisExcludedFolders": [
+    "build"
+  ]
+}
